@@ -233,7 +233,6 @@ def main():
             try:
 
                 with st.spinner("Retrieving information..."):
-                    import pdb; pdb.set_trace()
                     response, retrieved_image_path_list = retrieve_and_query(query, st.session_state.retriever_engine)
                     print(retrieved_image_path_list)
                 st.write("Retrieved Context:")
