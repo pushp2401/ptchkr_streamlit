@@ -1,0 +1,15 @@
+PyPDF2==3.0.1
+PyMuPDF==1.24.9
+numpy==1.26.4
+opencv-python==4.10.0.84
+matplotlib==3.9.2
+llama-index==0.11.2
+llama-index-vector-stores-qdrant==0.3.0
+ipython==8.26.0
+llama-index-embeddings-clip==0.2.0
+imageio==2.35.1
+pillow==10.4.0
+imagehash
+llama-index-embeddings-clip
+git+https://github.com/openai/CLIP.git
+python-dotenv
