@@ -21,6 +21,8 @@ import tempfile
 from qdrant_client import QdrantClient, models
 import getpass
 
+
+
 curr_user = getpass.getuser()
 # from langchain.vectorstores import Chroma
 # To connect to the same event-loop,
@@ -180,6 +182,14 @@ def retrieve_and_query(query, retriever_engine):
     
     return response, retrieved_image_path_list
 #tmpnimvp35m , tmpnimvp35m , tmpydpissmv
+
+
+def img_display(img_path_list) :
+    ##################### new image display function ###################################
+    for one_img in img_path_list :
+        image = Image.open(one_img) 
+        st.image(image)
+
 def process_pdf(pdf_file):
     temp_dir = tempfile.TemporaryDirectory()
     unique_folder_name = temp_dir.name.split('/')[-1]
@@ -233,6 +243,7 @@ def main():
             try:
 
                 with st.spinner("Retrieving information..."):
+                    # import pdb; pdb.set_trace()
                     response, retrieved_image_path_list = retrieve_and_query(query, st.session_state.retriever_engine)
                     print(retrieved_image_path_list)
                 st.write("Retrieved Context:")
@@ -240,8 +251,9 @@ def main():
                     st.code(node.node.get_text())
                 
                 st.write("\nRetrieved Images:")
-                plot_images(retrieved_image_path_list)
-                st.pyplot()
+                # plot_images(retrieved_image_path_list)
+                img_display(retrieved_image_path_list)
+                # st.pyplot()
 
                 st.write("\nFinal Answer:")
                 st.code(response.response)
